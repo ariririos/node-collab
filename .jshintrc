@@ -1,0 +1,20 @@
+{
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "freeze": true,
+  "globalstrict": true,
+  "latedef": "nofunc",
+  "noarg": true,
+  "nonew": true,
+  "notypeof": true,
+  "quotmark": true,
+  "singleGroups": true,
+  "undef": true,
+  "unused": "vars",
+  "esnext": true,
+  "sub": true,
+  "browser": true
+}
