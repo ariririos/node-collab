@@ -1,0 +1,11 @@
+%link{rel: 'import', href: '../shared.html'}
+%polymer-element{name: 'choose-mode'}
+  %template
+    %link{rel: 'stylesheet', href: 'choose-mode.css'}
+    #userMode{'on-tap' => '{{userMode}}'}
+      %span User
+    #supervisorMode{'on-tap' => '{{supervisorMode}}'}
+      %span Supervisor
+  %script
+    require(['../components/choose-mode/choose-mode']);
+

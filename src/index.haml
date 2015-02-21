@@ -1,9 +1,34 @@
 !!! 5
 %html{lang: 'en'}
   %head
-    %meta{name: 'charset', content: 'UTF-8'}
+    %meta{charset: 'UTF-8'}
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}
+    %meta{name: 'theme-color', content: '#fff'}
     %title Untitled
+    %link{rel: 'manifest', href: 'manifest.json'}
+    %link{rel: 'stylesheet', href:'//fonts.googleapis.com/css?family=Open+Sans:300italic,300,600'}
+    %link{rel: 'stylesheet', href: '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'}
     %link{rel: 'stylesheet', href: 'styles/index.css'}
+    %script{src: 'components/bower_components/webcomponentsjs/webcomponents.min.js'}
+    %link{rel: 'import', href: 'components/bower_components/polymer/polymer.html'}
+
   %body
+    #content
+      %header#page-header
+        .controlgroup
+          %i#menu-button.fa.fa-bars.closed
+          -# plus/minus?
+          -# back button?
+        #page-title
+        .controlgroup
+          %i#status-indicator.fa
+            %span#status-text
+          -# status, timer
+      %main
+        &nbsp;
+      %footer#page-footer &nbsp;
+    %aside#panel
+    #content-overlay
+    %script{src: 'scripts/browser-polyfill.js'}
+    %script{src: '/socket.io/socket.io.js'}
     %script{src: 'scripts/require.js', 'data-main' => 'scripts/index'}
