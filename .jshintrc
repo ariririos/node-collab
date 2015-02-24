@@ -16,5 +16,7 @@
   "unused": "vars",
   "esnext": true,
   "sub": true,
-  "browser": true
+  "browser": true,
+  "-W064": true,
+  "globals": ["Polymer"]
 }

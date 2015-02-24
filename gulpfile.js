@@ -1,12 +1,15 @@
 /* jshint node: true, browser: false, esnext: false, strict: false */
 /**
   Modified from the original in project-template to add support for web components by:
-  //* Adding a new task to compile the scripts for each component: this task ignores all import and export statements, instead relying on global variables from index.js
-  * Changing the 'src's in the scripts task, styles task, the html task, and their corresponding gulp.watch calls to watch and compile all .js, .scss and .haml files under src/
+  * Changing the src's in the scripts task, styles task, the html task, and their corresponding gulp.watch calls to watch and compile all .js, .scss and .haml files under src/
   * Forcing a full page reload for css files- it doesn't look like browser-sync can inject css for a component, so we'll just a reload. The CSS injection wasn't working correctly, anyway.
   * Removing the beep() function (see next bullet)
   * Handling errors using gulp-notify's onError method, removed beep() to prevent code smell
+  * Changing the scss-related src globs to ignore _files.scss
+  * Changing the babel module format from 'ignore' to 'common' in server-script task.
+  *** Some of these changes (3,4,5?) will eventually be merged into projectTemplate.
 **/
+//TODO: switch to gulp-nodemon for simplicity
 var gulp = require('gulp'),
   plugins = require('gulp-load-plugins')({
     rename: {
@@ -81,7 +84,7 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
   try {
     return gulp
-      .src('src/**/*.scss')
+      .src('src/**/[!_]*.scss')
       .pipe(plugins.changed('public', {
         extension: '.css'
       }))
@@ -137,7 +140,7 @@ gulp.task('server-script', function() {
       .pipe(plugins.sourcemaps.init())
       .pipe(plugins.babel({
         loose: ['es6.forOf'],
-        modules: 'ignore',
+        modules: 'common',
         comments: false,
         experimental: true,
         playground: true
@@ -160,7 +163,7 @@ gulp.task('server-script', function() {
 gulp.task('watch', function() {
   try {
     gulp.watch('src/**/*.js', ['scripts', browserSync.reload]);
-    gulp.watch('src/**/*.scss', ['styles']);
+    gulp.watch('src/**/[!_]*.scss', ['styles']);
     gulp.watch('src/**/*.haml', ['html', browserSync.reload]);
     gulp.watch('server-es6.js', ['server-script', browserSync.reload]);
   } catch (e) {

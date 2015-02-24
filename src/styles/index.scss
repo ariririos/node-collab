@@ -1,5 +1,6 @@
+@import 'variables';
+
 $hHeight: 2.5em;
-$back: #222;
 
 html, body {
   color: invert($back);
@@ -9,6 +10,7 @@ html, body {
   padding: 0;
   width: 100%;
   background-color: $back;
+  transition: background-color 1s, color 1s;
 }
 
 :focus {
@@ -28,19 +30,22 @@ html, body {
     width: 100%;
     height: calc(100% - #{$hHeight * 2});
   }
-  header, footer {
+  header {
     display: flex;
     justify-content: space-between;
     height: $hHeight;
     width: 100%;
     position: fixed;
+    top: 0;
     text-align: center;
+    font-size: 1.25em;
     >div {
       margin: auto 0;
       padding: 0 .7em;
     }
     i {
       -webkit-text-stroke-color: $back;
+      transition: -webkit-text-stroke-color 1s;
     }
     #status-indicator {
       #status-text {
@@ -55,15 +60,4 @@ html, body {
       -webkit-text-stroke-width: 2px;
     }
   }
-  header {
-    top: 0;
-    font-size: 1.25em;
-  }
-  footer {
-    bottom: 0;
-  }
-}
-
-#__bs_notify__ {
-  display: none !important;
 }

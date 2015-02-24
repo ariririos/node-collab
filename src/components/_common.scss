@@ -1,0 +1,24 @@
+.center {
+  text-align: center;
+}
+button, input {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 4px;
+  margin: 0;
+  font: 400 1em 'Open Sans';
+}
+.controlgroup {
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 35em) {
+    flex-direction: column;
+  }
+  @media (min-width: 35em) {
+    flex-direction: row;
+  }
+  * {
+    flex-grow: 1;
+  }
+}

@@ -1,0 +1,21 @@
+@import '../common';
+@import '../../styles/variables';
+$color: invert($back);
+:host, :root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.controlgroup {
+  width: 100%;
+}
+p, button {
+  color: $color;
+  //height: 2em;
+  font-size: 1.5em;
+}
+#super-pass-input {
+  color: $color;
+  font-size: 2em;
+  border-bottom: 2px solid invert($color);
+}

@@ -1,0 +1,11 @@
+%link{rel: 'import', href: '../shared.html'}
+%polymer-element{name: 'enter-super-pass'}
+  %template
+    %link{rel: 'stylesheet', href: 'enter-super-pass.css'}
+    %p Enter the supervisor password.
+    %input.center#super-pass-input{type: 'password'}
+    .controlgroup.half
+      %button{'on-tap' => '{{cancel}}'} Cancel
+      %button#submit{'on-tap' => '{{validate}}'} Submit
+  %script
+    require(['../components/enter-super-pass/enter-super-pass']);
